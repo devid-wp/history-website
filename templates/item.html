@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ item.title }} - Віртуальний Музей</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <a href="{{ url_for('index') }}" class="back-btn">← Повернутися до залів</a>
+
+        <div class="detail-container">
+            <div class="detail-image">
+                <img src="{{ url_for('static', filename='images/' + item.main_image) }}" alt="{{ item.title }}">
+            </div>
+            <div class="detail-content">
+                <h2>{{ item.title }}</h2>
+                <div style="border-bottom: 2px solid #c5a059; width: 50px; margin: 20px auto;"></div>
+                <p>{{ item.full_description }}</p>
+
+                <h3 style="text-align: left; margin-top: 30px;">Походження</h3>
+                <p><strong>Епоха:</strong> {{ item.era }}</p>
+                <p><strong>Регіон:</strong> {{ item.region }}</p>
+
+                <h3 style="text-align: left; margin-top: 30px;">Особливості</h3>
+                <p>{{ item.details }}</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Віртуальний Історичний Музей. Всі права захищені.</p>
+    </footer>
+</body>
+
+</html>

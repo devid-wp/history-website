@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Віртуальний Історичний Музей</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>Становлення та розвиток давніх культур на теренах сучасної України: системне дослідження</h1>
+        <p style="text-align: center; font-style: italic; color: #c5a059;">Подорож крізь віки в один клік</p>
+    </header>
+
+    <div class="container">
+        <div class="items-grid">
+            {% for id, item in items.items() %}
+            <a href="{{ url_for('item_detail', item_id=id) }}" class="item-card">
+                <div class="item-image-wrapper">
+                    <img src="{{ url_for('static', filename='images/' + item.main_image) }}" alt="{{ item.title }}">
+                </div>
+                <div class="item-info">
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.short_description }}</p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+        <section class="factory-section">
+            <h2>Лабараторія досліджень</h2>
+            <div class="factory-content">
+                <div class="factory-text">
+                    <p><strong>Радіовуглецевий метод (або метод C-14)</strong> — це науковий спосіб визначення віку
+                        органічних матеріалів. Його використовують археологи, історики та геологи для встановлення часу
+                        існування предметів або решток живих організмів.</p>
+
+                    <div class="factory-highlight" style="margin-top: 20px;">
+                        <h3>Принцип функціонування</h3>
+                        <p>У природі існує радіоактивний ізотоп вуглецю — вуглець‑14 (C-14). Він потрапляє в організми
+                            рослин, тварин і людей під час життя. Після смерті організму надходження вуглецю
+                            припиняється, а ізотоп C‑14 поступово розпадається. Вимірюючи кількість цього ізотопу, вчені
+                            можуть визначити приблизний вік знахідки.</p>
+                    </div>
+                </div>
+
+                <div class="factory-text">
+                    <h3>Об'єкти дослідження:</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div
+                            style="background: rgba(46, 125, 50, 0.1); padding: 15px; border-radius: 8px; border-left: 4px solid #2e7d32;">
+                            <h4 style="color: #2e7d32; margin-top: 0;">✅ Можна досліджувати:</h4>
+                            <ul style="font-size: 0.9rem; padding-left: 20px;">
+                                <li>Деревина (залишки будівель, знаряддя)</li>
+                                <li>Деревне вугілля з давніх вогнищ</li>
+                                <li>Кістки людей і тварин</li>
+                                <li>Зерно та насіння рослин</li>
+                                <li>Тканини та шкіра</li>
+                                <li>Залишки їжі на посуді</li>
+                            </ul>
+                        </div>
+                        <div
+                            style="background: rgba(198, 40, 40, 0.1); padding: 15px; border-radius: 8px; border-left: 4px solid #c62828;">
+                            <h4 style="color: #c62828; margin-top: 0;">❌ Не можна досліджувати:</h4>
+                            <ul style="font-size: 0.9rem; padding-left: 20px;">
+                                <li>Камінь</li>
+                                <li>Металеві предмети</li>
+                                <li>Чисту глину або кераміку (без органіки)</li>
+                                <li>Скло</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
+                <p><strong>💡 Цікавий факт:</strong> Під час досліджень Трипільської археологічної культури археологи
+                    часто датують деревне вугілля з вогнищ, обгорілі залишки дерев’яних будинків або зерно, знайдене під
+                    час розкопок поселень. Це дозволяє точно встановити час існування культури.</p>
+                <p><em>Метод працює для об'єктів віком до 50–60 тисяч років.
+
+                        Так визначили, що трипільські поселення існували приблизно 5400–2700 років до н.е.
+                    </em></p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; </p>
+    </footer>
+</body>
+
+</html>
